@@ -61,3 +61,15 @@ def update_screen(ss_settings, screen, ship, bullets):
 
     # Make the most drawn screen visible.
     pygame.display.flip()
+
+
+def update_bullets(bullets):
+    """Update postition of bullets and get rid of old bullets."""
+
+    # Update bullet positions.
+    bullets.update()
+
+# Get rid of bullets that have disappeared.
+    for bullet in bullets.copy():
+        if bullet.rect.button <= 0:
+            bullets.remove(bullet)
